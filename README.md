@@ -26,7 +26,7 @@ $ git clone https://github.com/metal3d/bashsimplecurses.git
 # Execution
 Both scripts can be executed by using their name:
 ```
-# ./monitor.sh
+$ ./monitor.sh
 # ./stats_curse.sh
 ```
 We unfortunately need su priviledges to execute smartctl command, which is used to retrieve NVMe drives temperatures.<br>
