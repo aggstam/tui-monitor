@@ -20,13 +20,13 @@ The following packages must be installed in your system:
 All package names provided are for Gentoo, so the naming in different distros may vary.<br>
 Additionally, we need Bash Simple Curses[1] repo somewhere in the system:
 ```
-$ git clone https://github.com/metal3d/bashsimplecurses.git
+% git clone https://github.com/metal3d/bashsimplecurses.git
 ```
 
 # Execution
 Both scripts can be executed by using their name:
 ```
-$ ./monitor.sh
+% ./monitor.sh
 # ./stats_curse.sh
 ```
 We unfortunately need su priviledges to execute smartctl command, which is used to retrieve NVMe drives temperatures.<br>
