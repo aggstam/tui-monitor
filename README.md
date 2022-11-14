@@ -23,15 +23,6 @@ Additionally, we need Bash Simple Curses[1] repo somewhere in the system:
 % git clone https://github.com/metal3d/bashsimplecurses.git
 ```
 
-# Execution
-Both scripts can be executed by using their name:
-```
-% ./monitor.sh
-# ./stats_curse.sh
-```
-We unfortunately need su priviledges to execute smartctl command, which is used to retrieve NVMe drives temperatures.<br>
-Feel free to suggest a non su utility to replace smartctl, and/or remove it entirely if you don't use NVMe drives.
-
 # Configuration
 This section describes all the configuration needed to create your monitorring dashboard.
 
@@ -66,7 +57,16 @@ Default configuration dispays basic system info like user, hostname, time, date 
 Additionally we have system temperatures, like CPU, GPU and disks temperatures.<br>
 A function to retrieve each component type temperature is provided, so you need to configure devices accordingly and append their records in main function.<br>
 
-You can remove or add **anything** you want! 
+You can remove or add **anything** you want!
+
+# Execution
+Both scripts can be executed by using their name:
+```
+% ./monitor.sh
+# ./stats_curse.sh
+```
+We unfortunately need su priviledges to execute smartctl command, which is used to retrieve NVMe drives temperatures.<br>
+Feel free to suggest a non su utility to replace smartctl, and/or remove it entirely if you don't use NVMe drives.
 
 # References
 [1] Bash Simple Curses: https://github.com/metal3d/bashsimplecurses<br>
