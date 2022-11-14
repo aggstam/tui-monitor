@@ -42,7 +42,7 @@ Script contains 3 processes to monitor:
 3. cava
 
 Since this is a normal tmux script, you can add more processes to monitor.<br>
-Don't forget to configure panes sizes for a nicer output.
+Don't forget to configure panes sizes for a nicer output.<br>
 Example dashboard:
 ![Screenshot](https://github.com/aggstam/tui-monitor/blob/main/screenshot.png)
 
