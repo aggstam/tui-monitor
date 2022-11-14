@@ -1,6 +1,5 @@
 # tui-monitor
-Simple Terminal UI to monitor processes like a custom stats curse script, htop and others.
-
+Simple Terminal UI to monitor processes like a custom stats curse script, htop and others.<br>
 Two scripts are provided:
 | Name           | Description                                                                        |
 |----------------|------------------------------------------------------------------------------------|
@@ -18,8 +17,7 @@ The following packages must be installed in your system:
 7. smartctl
 8. udisksctl
 
-All package names provided are for Gentoo, so the naming in different distros may vary.
-
+All package names provided are for Gentoo, so the naming in different distros may vary.<br>
 Additionally, we need Bash Simple Curses[1] repo somewhere in the system:
 ```
 $ git clone https://github.com/metal3d/bashsimplecurses.git
@@ -29,9 +27,9 @@ $ git clone https://github.com/metal3d/bashsimplecurses.git
 Both scripts can be executed by using their name:
 ```
 # ./monitor.sh
-% ./stats_curse.sh
+# ./stats_curse.sh
 ```
-We unfortunately need sudo priviledges to execute smartctl command, which is used to retrieve NVMe drives temperatures.
+We unfortunately need su priviledges to execute smartctl command, which is used to retrieve NVMe drives temperatures.<br>
 Feel free to suggest a non su utility to replace smartctl, and/or remove it entirely if you don't use NVMe drives.
 
 # Configuration
@@ -43,7 +41,7 @@ Script contains 3 processes to monitor:
 2. htop
 3. cava
 
-Since this is a normal tmux script, you can add more processes to monitor.
+Since this is a normal tmux script, you can add more processes to monitor.<br>
 Don't forget to configure panes sizes for a nicer output.
 Example dashboard:
 ![Screenshot](https://github.com/aggstam/tui-monitor/blob/main/screenshot.png)
@@ -62,12 +60,13 @@ lat=52.52
 long=13.41
 ```
 
-Now we can configure what we want to display in our window inside main function.
-Default configuration dispays basic system info like user, hostname, time, date and weather.
-Additionally we have system temperatures, like CPU, GPU and disks temperatures.
-We have a function to retrieve each component type temperature, so you need to configure devices accordingly and append their records in main function.
-You can remove or add anything you want! 
+Now we can configure what we want to display in our window inside main function at line 217!<br>
+Default configuration dispays basic system info like user, hostname, time, date and weather.<br>
+Additionally we have system temperatures, like CPU, GPU and disks temperatures.<br>
+A function to retrieve each component type temperature is provided, so you need to configure devices accordingly and append their records in main function.<br>
+
+You can remove or add **anything** you want! 
 
 # References
-[1] Bash Simple Curses: https://github.com/metal3d/bashsimplecurses
+[1] Bash Simple Curses: https://github.com/metal3d/bashsimplecurses<br>
 [2] Open-Meteo: https://open-meteo.com/
