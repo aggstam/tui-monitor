@@ -6,7 +6,7 @@ Two scripts are provided:
 | monitor.sh     | TUI tmux script to monitor multiple processes                                      |
 | stats_curse.sh | Curse script to monitor system information and others, based on Bash Simple Curses |
 
-# Dependencies
+## Dependencies
 The following packages must be installed in your system:
 1. tmux
 2. htop
@@ -23,10 +23,10 @@ Additionally, we need Bash Simple Curses[1] repo somewhere in the system:
 % git clone https://github.com/metal3d/bashsimplecurses.git
 ```
 
-# Configuration
+## Configuration
 This section describes all the configuration needed to create your monitorring dashboard.
 
-## monitor.sh
+### monitor.sh
 Script contains 3 processes to monitor:
 1. stats_curse.sh script
 2. htop
@@ -38,7 +38,7 @@ Example dashboard:
 
 ![Screenshot](https://github.com/aggstam/tui-monitor/blob/main/screenshot.png)
 
-## stats_curse.sh
+### stats_curse.sh
 First we need to define Bash Simple Curses path at line 28.
 Example:
 ```
@@ -59,7 +59,7 @@ A function to retrieve each component type temperature is provided, so you need 
 
 You can remove or add **anything** you want!
 
-# Execution
+## Execution
 Both scripts can be executed by using their name:
 ```
 % ./monitor.sh
@@ -68,6 +68,6 @@ Both scripts can be executed by using their name:
 We unfortunately need su priviledges to execute smartctl command, which is used to retrieve NVMe drives temperatures.<br>
 Feel free to suggest a non su utility to replace smartctl, and/or remove it entirely if you don't use NVMe drives.
 
-# References
+## References
 [1] Bash Simple Curses: https://github.com/metal3d/bashsimplecurses<br>
 [2] Open-Meteo: https://open-meteo.com/
