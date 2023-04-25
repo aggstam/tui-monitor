@@ -25,7 +25,7 @@
 tmux new-session -d -x "$(tput cols)" -y "$(tput lines)"
 
 # Disabling status bar for cleaner look
-tmux set -g status off
+tmux set status off
 
 # Split window that will host the miner
 tmux split-window -v
