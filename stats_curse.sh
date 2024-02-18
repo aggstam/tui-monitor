@@ -5,7 +5,7 @@
 # like date, local weather using Open-Meteo API and temperature sensors.
 # Usage: ./stats_curse.sh
 #
-# Bash Simple Curses: https://github.com/metal3d/sbashsimplecurses
+# Bash Simple Curses: https://github.com/metal3d/bashsimplecurses
 # Open-Meteo: https://open-meteo.com/
 #
 # Author: Aggelos Stamatiou, July 2022
@@ -25,7 +25,7 @@
 # --------------------------------------------------------------------------
 
 # Bash Simple curses lib import
-. `dirname $0`/../bashsimplecurses/simple_curses.sh
+. `dirname $0`/bashsimplecurses/simple_curses.sh
 
 # Open-Meto weather api configuration
 lat={YOUR_LATITUDE}

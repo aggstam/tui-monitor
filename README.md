@@ -1,26 +1,30 @@
 # tui-monitor
 Simple Terminal UI to monitor processes like a custom stats curse script, htop and others.<br>
 Two scripts are provided:
-| Name           | Description                                                                        |
-|----------------|------------------------------------------------------------------------------------|
-| monitor.sh     | TUI tmux script to monitor multiple processes                                      |
-| stats_curse.sh | Curse script to monitor system information and others, based on Bash Simple Curses |
+| Name             | Description                                                                        |
+|------------------|------------------------------------------------------------------------------------|
+| `monitor.sh`     | TUI tmux script to monitor multiple processes                                      |
+| `stats_curse.sh` | Curse script to monitor system information and others, based on Bash Simple Curses |
 
 ## Dependencies
 The following packages must be installed in your system:
-1. tmux
-2. htop
-3. cava
-4. curl
-5. lm-sensors
-6. nvidia-settings
-7. smartctl
-8. udisksctl
+1. `tmux`
+2. `htop`
+3. `cava`
+4. `curl`
+5. `lm-sensors`
+6. `nvidia-settings`
+7. `smartctl`
+8. `udisksctl`
 
 All package names provided are for Gentoo, so the naming in different distros may vary.<br>
-Additionally, we need Bash Simple Curses[1] repo somewhere in the system:
+We are using Bash Simple Curses[1] repo as a `git` submodule, so on initial pull:
 ```
-% git clone https://github.com/metal3d/bashsimplecurses.git
+% git submodule update --init
+```
+To pull updates:
+```
+% git pull --recurse-submodules
 ```
 
 ## Configuration
@@ -28,23 +32,17 @@ This section describes all the configuration needed to create your monitorring d
 
 ### monitor.sh
 Script contains 3 processes to monitor:
-1. stats_curse.sh script
-2. htop
-3. cava
+1. `stats_curse.sh` script
+2. `htop`
+3. `cava`
 
-Since this is a normal tmux script, you can add more processes to monitor.<br>
+Since this is a normal `tmux` script, you can add more processes to monitor.<br>
 Don't forget to configure panes sizes for a nicer output.<br>
 Example dashboard:
 
 ![Screenshot](https://github.com/aggstam/tui-monitor/blob/main/screenshot.png)
 
 ### stats_curse.sh
-First we need to define Bash Simple Curses path at line 28.
-Example:
-```
-. `dirname $0`/../bashsimplecurses/simple_curses.sh
-```
-
 Script uses Open-Meteo API[2] to retrieve current weather information, so we must provide our latitude and longitude at lines 31 and 32.
 Example:
 ```
@@ -65,8 +63,8 @@ Both scripts can be executed by using their name:
 % ./monitor.sh
 # ./stats_curse.sh
 ```
-We unfortunately need su priviledges to execute smartctl command, which is used to retrieve NVMe drives temperatures.<br>
-Feel free to suggest a non su utility to replace smartctl, and/or remove it entirely if you don't use NVMe drives.
+We unfortunately need `su` priviledges to execute `smartctl` command, which is used to retrieve NVMe drives temperatures.<br>
+Feel free to suggest a non `su` utility to replace `smartctl`, and/or remove it entirely if you don't use NVMe drives.
 
 ## References
 [1] Bash Simple Curses: https://github.com/metal3d/bashsimplecurses<br>
