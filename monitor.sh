@@ -27,11 +27,11 @@ tmux new-session -d -x "$(tput cols)" -y "$(tput lines)"
 # Disabling status bar for cleaner look
 tmux set status off
 
-# Split window that will host the miner
+# Split window that will host htop
 tmux split-window -v
 
 # Split window that will host the cava session
-tmux split-window -v -p 25
+tmux split-window -v -l 10
 
 # Start cava
 tmux send-keys "cava" Enter
