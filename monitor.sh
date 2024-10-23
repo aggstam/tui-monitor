@@ -3,7 +3,7 @@
 #
 # Simple script to generate a new tmux session to monitor processes like
 # stats curse script, htop and a cava audio visualizer.
-# Usage:    ./monitor.sh
+# Usage:    ./monitor.sh {optional session name}
 #
 # Author: Aggelos Stamatiou, July 2022
 #
@@ -22,7 +22,11 @@
 # --------------------------------------------------------------------------
 
 # Initialize tmux session
-tmux new-session -d -x "$(tput cols)" -y "$(tput lines)"
+session=$1
+if [ -z $session ]; then
+    session=tui-monitor
+fi
+tmux new-session -d -x "$(tput cols)" -y "$(tput lines)" -s $session
 
 # Disabling status bar for cleaner look
 tmux set status off
