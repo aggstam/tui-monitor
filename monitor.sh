@@ -1,9 +1,9 @@
-#!/bin/bash
+#!/bin/sh
 # --------------------------------------------------------------------------
 #
 # Simple script to generate a new tmux session to monitor processes like
 # stats curse script, htop and a cava audio visualizer.
-# Usage:    ./monitor.sh {optional session name}
+# Usage: ./monitor.sh {optional session name}
 #
 # Author: Aggelos Stamatiou, July 2022
 #
@@ -49,7 +49,7 @@ tmux select-pane -t 0
 tmux resize-pane -U 8
 
 # Start stats curse script
-tmux send-keys "sudo ./stats_curse.sh" Enter
+tmux send-keys "./stats_curse.sh" Enter
 
 # Splitting complete, starting tmux session
 tmux attach
