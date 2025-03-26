@@ -18,9 +18,9 @@ and then grab each chip id to use in the scripts, by running:
 % sensors
 ```
 
-### cpu.sh
+### amd_cpu.sh
 
-Retrieves CPU package temperature, followed by each core temperature, in Celcius.
+Retrieves AMD CPU processor temperature control value(Tctl), followed by each die temperature, in Celcius.
 
 #### Dependencies
 
@@ -29,7 +29,21 @@ Retrieves CPU package temperature, followed by each core temperature, in Celcius
 #### Usage
 
 ```
-% ./cpu.sh {cores count} {optional sensors chip id}
+% ./amd_cpu.sh {dies count} {optional sensors chip id}
+```
+
+### intel_cpu.sh
+
+Retrieves Intel CPU package temperature, followed by each core temperature, in Celcius.
+
+#### Dependencies
+
+* `lm-sensors`
+
+#### Usage
+
+```
+% ./intel_cpu.sh {cores count} {optional sensors chip id}
 ```
 
 ### amd_gpu.sh

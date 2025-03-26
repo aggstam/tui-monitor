@@ -1,12 +1,12 @@
 #!/bin/sh
 # --------------------------------------------------------------------------
 #
-# Very simple script to grab CPU temperatures, using `lm-sensors`.
+# Very simple script to grab Intel CPU temperatures, using `lm-sensors`.
 # Output is the package temperature, followed by each core temperature,
 # in Celcius.
-# Usage: ./cpu.sh {cores count} {optional sensors chip id}
+# Usage: ./intel_cpu.sh {cores count} {optional sensors chip id}
 #
-# Author: Aggelos Stamatiou, Feb 2025
+# Author: Aggelos Stamatiou, Mar 2025
 #
 # This source code is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by

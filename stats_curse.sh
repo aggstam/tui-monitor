@@ -57,13 +57,23 @@ main() {
 
     # CPU temperatures
     window "CPU Temperatures" "red"
-    cpu_cores=4
-    cpu_temps=($(./cpu.sh $cpu_cores coretemp-isa-0000))
-    append_tabbed "Package:${cpu_temps[0]}" 2
-    for ((i=0; i<$cpu_cores; i+=1))
-    do
-        append_tabbed "Core $i:${cpu_temps[$i+1]}" 2
-    done
+    # Use the corresponding script for the CPU manufacturer
+    # AMD
+    #cpu_dies=0
+    #cpu_temps=($(./amd_cpu.sh $cpu_dies k10temp-pci-00c3))
+    #append_tabbed "Temperature:${cpu_temps[0]}" 2
+    #for ((i=0; i<$cpu_dies; i+=1))
+    #do
+    #    append_tabbed "Die $i:${cpu_temps[$i+1]}" 2
+    #done
+    # Intel
+    #cpu_cores=4
+    #cpu_temps=($(./intel_cpu.sh $cpu_cores coretemp-isa-0000))
+    #append_tabbed "Package:${cpu_temps[0]}" 2
+    #for ((i=0; i<$cpu_cores; i+=1))
+    #do
+    #    append_tabbed "Core $i:${cpu_temps[$i+1]}" 2
+    #done
     endwin
 
     # GPU information
