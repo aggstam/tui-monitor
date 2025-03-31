@@ -34,7 +34,7 @@ sensors=$(sensors $2)
 cpu_temps="$(parse_temp "$sensors" "Tctl")°C"
 
 # Parse Dies temps
-for ((i=0; i<$1; i+=1))
+for ((i=1; i<=$1; i+=1))
 do
     cpu_temps+=" $(parse_temp "$sensors" "Tccd$i")°C"
 done
