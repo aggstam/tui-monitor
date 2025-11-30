@@ -1,11 +1,9 @@
 #!/bin/sh
 # --------------------------------------------------------------------------
 #
-# Very simple script to grab SATA drive temperature, using `udisksctl`.
-# Input is the disk combined name and serial, as reported by executing
-# `udisksctl status` and replacing spaces and '-' with '_'.
-# Output contains the drive smart temperature, in Celcius.
-# Usage: ./sata.sh {Disk_Name_Serial}
+# Very simple script to grab SATA drive temperature, using `lm-sensors`.
+# Output contains the drive temperature, in Celcius.
+# Usage: ./sata.sh {optional sensors chip id}
 #
 # Author: Aggelos Stamatiou, Feb 2025
 #
@@ -23,15 +21,5 @@
 # along with this source code. If not, see <http://www.gnu.org/licenses/>.
 # --------------------------------------------------------------------------
 
-# Extract SATA drive smart temperature
-raw_temp=$(udisksctl info -d $1 | grep "SmartTemperature" | grep -oP "\d+" | head -1)
-
-# udisksctl reports in Kelvin, so we convert to Celcius
-temp=$(($raw_temp-273))
-
-# Add positive sign
-if [ $temp -ge 0 ]; then
-    echo "+$temp°C"
-else
-    echo "$temp°C"
-fi
+# Extract SATA drive temperature
+echo "$(sensors $1 | grep "temp1" | grep -oP "[+,-]\d+" | head -1)°C"

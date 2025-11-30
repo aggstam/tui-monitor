@@ -94,10 +94,10 @@ main() {
     window "Disks temperatures" "red"
     # Add one line for each disk, using the corresponding script for its type.
     # NVMe example: append_tabbed "Disk name:$(./nvme.sh {sensors chip id})" 2
-    # SATA example: append_tabbed "Disk name:$(./sata.sh {Disk_Name_Serial})" 2
+    # SATA example: append_tabbed "Disk name:$(./sata.sh {sensors chip id})" 2
     #append_tabbed "NVMe:$(./nvme.sh {sensors chip id})" 2
-    #append_tabbed "SSD:$(./sata.sh {SSD_Disk_Name_Serial})" 2
-    #append_tabbed "HDD:$(./sata.sh {HDD_Disk_Name_Serial})" 2
+    #append_tabbed "SSD:$(./sata.sh {sensors chip id})" 2
+    #append_tabbed "HDD:$(./sata.sh {sensors chip id})" 2
     endwin
 }
 

@@ -91,18 +91,16 @@ Retrieves NVMe drive composite temperature, in Celcius.
 
 ### sata.sh
 
-Retrieves SATA drive smart temperature, in Celcius.<br>
-Input is the disk combined name and serial, as reported by executing
-`udisksctl status` and replacing spaces and '-' with '_'.
+Retrieves SATA drive temperature, in Celcius.
 
 #### Dependencies
 
-* `udisksctl`
+* `lm-sensors`
 
 #### Usage
 
 ```
-% ./sata.sh {Disk_Name_Serial}
+% ./sata.sh {optional sensors chip id}
 ```
 
 ### weather.sh
