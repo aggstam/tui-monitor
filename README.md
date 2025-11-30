@@ -10,12 +10,29 @@ All package names provided are for Gentoo, so the naming in different distros ma
 ## Information retrieval scripts
 
 This section describes all the auxilliary scripts used to retrieve system information.<br>
-For the scripts that use `lm-sensors`, it is highly recomended to first detect sensors
-and then grab each chip id to use in the scripts, by running:
+For the scripts that use `lm-sensors`, it is highly recomended to first detect sensors:
 
-```
+```shell
 # sensors-detect
-% sensors
+```
+
+This will generate a kernel modules load configuration at:
+
+```text
+/etc/modules-load.d/lm_sensors.conf
+```
+
+You can add extra sensors modules that were not picked up by `lm-sensors`, like for example
+`drivetemp` for SATA drives temperature sensors:
+
+```shell
+# echo "drivetemp" >> /etc/modules-load.d/lm_sensors.conf
+```
+
+Then grab each chip id to use in the scripts, by running:
+
+```shell
+$ sensors
 ```
 
 ### amd_cpu.sh
@@ -28,8 +45,8 @@ Retrieves AMD CPU processor temperature control value(Tctl), followed by each di
 
 #### Usage
 
-```
-% ./amd_cpu.sh {dies count} {optional sensors chip id}
+```shell
+$ ./amd_cpu.sh {dies count} {optional sensors chip id}
 ```
 
 ### intel_cpu.sh
@@ -42,8 +59,8 @@ Retrieves Intel CPU package temperature, followed by each core temperature, in C
 
 #### Usage
 
-```
-% ./intel_cpu.sh {cores count} {optional sensors chip id}
+```shell
+$ ./intel_cpu.sh {cores count} {optional sensors chip id}
 ```
 
 ### amd_gpu.sh
@@ -57,8 +74,8 @@ along with the current PPT watts value.
 
 #### Usage
 
-```
-% ./amd_gpu.sh {optional sensors chip id}
+```shell
+$ ./amd_gpu.sh {optional sensors chip id}
 ```
 
 ### nvidia_gpu.sh
@@ -71,8 +88,8 @@ Retrieves NVIDIA GPU current core temperature, in Celcius.
 
 #### Usage
 
-```
-% ./nvidia_gpu.sh {GPU index}
+```shell
+$ ./nvidia_gpu.sh {GPU index}
 ```
 
 ### nvme.sh
@@ -85,8 +102,8 @@ Retrieves NVMe drive composite temperature, in Celcius.
 
 #### Usage
 
-```
-% ./nvme.sh {optional sensors chip id}
+```shell
+$ ./nvme.sh {optional sensors chip id}
 ```
 
 ### sata.sh
@@ -99,8 +116,8 @@ Retrieves SATA drive temperature, in Celcius.
 
 #### Usage
 
-```
-% ./sata.sh {optional sensors chip id}
+```shell
+$ ./sata.sh {optional sensors chip id}
 ```
 
 ### weather.sh
@@ -113,8 +130,8 @@ Retrieves local weather from Open-Meteo API[1], for provided latitude and longit
 
 #### Usage
 
-```
-% ./weather.sh {latitude} {longitute}
+```shell
+$ ./weather.sh {latitude} {longitute}
 ```
 
 ## stats_curse.sh
@@ -122,21 +139,21 @@ Retrieves local weather from Open-Meteo API[1], for provided latitude and longit
 Curse script to monitor system information and others, based on Bash Simple Curses[2].<br>
 We are using Bash Simple Curses repo as a `git` submodule, so on initial pull:
 
-```
-% git submodule update --init
+```shell
+$ git submodule update --init
 ```
 
 To pull updates:
 
-```
-% git pull --recurse-submodules
+```shell
+$ git pull --recurse-submodules
 ```
 
 ### Configuration
 
 Script uses the weather script to retrieve current local weather information, so we must provide our latitude and longitude at lines 30 and 31.
 Example:
-```
+```text
 lat=52.52
 long=13.41
 ```
@@ -150,8 +167,8 @@ You can remove or add **anything** you want!
 
 ### Usage
 
-```
-% ./stats_curse.sh
+```shell
+$ ./stats_curse.sh
 ```
 
 ## monitor.sh
@@ -174,8 +191,8 @@ Example dashboard:
 
 ### Usage
 
-```
-% ./monitor.sh
+```shell
+$ ./monitor.sh
 ```
 
 ## References
